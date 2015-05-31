@@ -1,25 +1,24 @@
 <?php
 
 
-class InregistrareModel extends Model
+class AdministratorModel extends Model
 {
 	private $_name;
 	private $_password;
-	private $_password1;
-	private $_id;
-	
+	private $_passordadministrator;
 	public function setName($name)
 	{
 		$this->_name = $name;
 	}
 
-
-
 	public function setPassword($password)
 	{
 		$this->_password = md5($password);
 	}
-	
+	public function setPasswordAdministrator($password)
+	{
+		$this->_passordadministrator = md5($password);
+	}
 	public function NameExist($name)
 	{
 		$sql=" SELECT name from USER WHERE name=?";
@@ -61,5 +60,19 @@ class InregistrareModel extends Model
 			$table = $this->getRow($data);
 			return $table;
 		
+	}
+
+	public function verifPassword()
+	{
+		$sql="SELECT password from passwordadmin WHERE password=?";
+		$data=array($this->_passordadministrator);
+			$this->_setSql($sql);
+			$table = $this->getRow($data);
+			if (empty($table))
+			{
+				return false;
+			}
+			
+			return true;
 	}
 }

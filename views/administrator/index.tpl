@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 
-   <link href="/views/inregistrare/css/inregistrare.css" type="text/css" rel="stylesheet" />
+   <link href="/views/administrator/css/administrator.css" type="text/css" rel="stylesheet" />
    <!--  <link href="../_styles.css" type="text/css" rel="stylesheet"/> -->
 <title>DaWe</title>
 </head>
@@ -22,7 +22,7 @@
             <section>
                 <div id="allForm">
                 <h1>Introduceti datele:</h1>
-                    <form action="/inregistrare/save" method="post"  autocomplete="off">
+                    <form action="/administrator/save" method="post"  autocomplete="off">
                         <span class="type">USERNAME:</span><br>
                     <input type="text" name="name">
                     <br>
@@ -32,11 +32,16 @@
                         <span class="type">RETYPE PASSWORD:</span><br>
                     <input type="password" name="password1" >
                     <br><br>
+                   		 <span class="type">SERVER PASSWORD:</span><br>
+                    <input type="password" name="password2" >
+                    <br><br>
 
-                    <input id="inre" class="button" type="submit" name="inregistrareFormSubmit"  value="Inregistrare ">
+                   
+                </div>
+ 					<input id="inre" class="button" type="submit" name="administratorFormSubmit"  value="Inregistrare Administrator" >
                     </form>
                   
-                </div>
+
             </section>
         </section>    
         <section id="error">
