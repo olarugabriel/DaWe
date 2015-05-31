@@ -1,0 +1,117 @@
+body
+{
+ background: url("images/bkg.png") repeat-x;   
+font-family: Copperplate, 'Copperplate Gothic Light', fantasy;
+}
+
+header
+{
+
+    height:200px;
+}
+header #title
+{
+    background: url("images/title.png") no-repeat;
+    
+    height:200px;
+    width:90%;
+    margin:0 auto;
+
+}
+main
+{
+    height:200px;
+}
+main section:first-child
+{
+    height:100px;
+
+}
+main #formBox
+{
+   
+    width:450px;
+    height:250px;
+    background: white;
+    margin:0 auto;
+     border-radius: 10px;
+-webkit-box-shadow: 0px 0px 11px 8px rgba(107,105,107,1);
+-moz-box-shadow: 0px 0px 11px 8px rgba(107,105,107,1);
+box-shadow: 0px 0px 11px 8px rgba(107,105,107,1);
+}
+main #formBox #allForm
+{
+    padding-top: 20px;
+    margin-left:40px;
+
+}
+main #formBox #allForm .type
+{
+    margin-left:5px;
+    font-size: 10px;
+    color:gray;
+}
+main #formBox span
+{
+    color:#a45b26;
+}
+main #formBox input[type="text"],input[type="password"]
+{
+    border-radius: 5px;
+    width:200px;
+    height:20px;
+    padding-left:25px;
+  
+ 
+}
+main #formBox input[name="name"]
+{   background-image: url("images/icon.png");
+    background-size: contain;
+    background-position:  4px 1px;
+    background-repeat: no-repeat;
+}
+main #formBox input[name="password"]
+{   background-image: url("images/icon_pas.png");
+    background-size: 20px;
+    background-position: 4px 1px;
+    background-repeat: no-repeat;
+}
+#error
+{
+    margin:0 auto;
+    width:235px;
+}
+ul{
+    text-align: center;
+}
+
+#mesaj
+{
+    font-weight: bold;
+}
+main #formBox #allForm .button
+{
+    background: url("images/button.png") repeat-x;
+    height:40px;
+    color:gray;
+    font-size: 20px;
+    font-family: Copperplate, 'Copperplate Gothic Light', fantasy;
+    border-radius: 10px;
+    padding-right: 10px;
+ }
+main #formBox .button
+{
+   background: url("images/button.png");
+   width:100px;
+}
+main #formBox #inre
+{
+     width:170px;
+    margin-left: 40px;
+}
+footer
+{
+
+    height:200px;
+}
+

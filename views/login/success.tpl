@@ -1,22 +1,17 @@
-<!DOCTYPE html>
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title><?php echo $title; ?></title>
-    </head>
-    <body>
-	
-		<?php include HOME . DS .  'includes' . DS . 'menu.inc.php'; ?>
-		
-		<h1><?php echo $title; ?></h1>
-		<h2>Data stored:</h2>
-		
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" http-equiv="refresh" content="1;url=/home/index" />
+
+    <link href="/views/login/css/main.css" type="text/css" rel="stylesheet"/>
+    <title>DaWe</title>
+</head>
+<body>
+	<section id="mesaj"	>
 		<?php if (!empty(($userData['name']) && ($userData['password']))): ?>
 			<p><?php echo $userData['name'].' ,te-ai logat cu succes!'; ?></p>
 		<?php endif;?>
-		
-		
-		
+	</section>	
     </body>
 </html>
