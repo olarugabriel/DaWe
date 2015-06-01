@@ -31,13 +31,12 @@ class AdministratorModel extends Model
 		}
 		
 		return true;
-
 	}
 
 
 	public function store()
 	{
-		$sql = "INSERT INTO USER(name,password,type) VALUES(?,?,1)";
+		$sql = "INSERT INTO USER(name,password,type) VALUES(?,?,2)";
 		$data=array($this->_name,$this->_password);
 		$this->_setSql($sql);
 		$query = $this->executeSQL($data);

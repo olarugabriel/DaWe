@@ -9,7 +9,7 @@ class AdministratorController extends Controller
 	}
 	public function index()
 	{
-		$this->_view->set('title', 'Simple site Contact Form');
+		$this->_view->set('title', 'Simple site administrator Form');
 		return $this->_view->output();
 	}
 
@@ -71,17 +71,27 @@ class AdministratorController extends Controller
 			
 		try {
 					
-			$contact = new AdministratorModel();
-			$contact->setName($name);
-			$contact->setPassword($password);
-			$contact->setPasswordAdministrator($password2);
-			$ok=$contact->verifPassword();
+			$administrator = new AdministratorModel();
+			$administrator->setName($name);
+			$administrator->setPassword($password);
+			$administrator->setPasswordAdministrator($password2);
+			$ok=$administrator->verifPassword();
 			if($ok)
-			{
-				$var=$contact->store();
+			{	
+				$verif=$administrator->NameExist($name);
+				if($verif)
+				{	
+					array_push($errors, "Numele exista deja in baza de date!");
+					$this->_setView('index');
+			        $this->_view->set('title', 'Numele exista in baza de date! Introdu un alt nume!');
+			        $this->_view->set('errors', $errors);
+					return $this->_view->output();
+				}
+
+				$var=$administrator->store();
 				if($var)
 				{	
-					$var1=$contact->getinfoUser();
+					$var1=$administrator->getinfoUser();
 
 					session_start();
 				
@@ -117,7 +127,7 @@ class AdministratorController extends Controller
 			else
 			{	
 				array_push($errors, "Parola serverului este gresita!");
-				 $this->_setView('index');
+				$this->_setView('index');
 	            $this->_view->set('title', 'Invalid form data!');
 				$this->_view->set('errors', $errors);
 				$this->_view->set('formData', $_POST);
