@@ -14,6 +14,14 @@
         <section id="bottomHeader"></section>
     </header>
     <main>  
+
+
+<form action="/sql/run" method="POST">
+Your MySQL Query: <textarea rows="4" cols="50" name="sql"> </textarea><br>
+<input type="submit" name="Submit" value="RUN">
+</form>
+
+
     </main>
     <footer>
     </footer>

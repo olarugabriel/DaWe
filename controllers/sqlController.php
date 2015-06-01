@@ -18,4 +18,12 @@ class SqlController extends Controller
 			echo '<h1>Application error:</h1>' . $e->getMessage();
 		}
 	}
+	public function run()
+	{ echo "your query: "; 
+		echo $_POST['sql'];
+		echo"was successfully executed!";
+	$this->_model->run($_POST['sql']);
+
+	}
+
 }
