@@ -38,4 +38,19 @@ class Model
 		$sth->execute($data);
 		return $sth->fetch();
 	}
+
+	public function executeSQL($data= null)
+	{
+
+		if (!$this->_sql)
+		{
+			throw new Exception("No SQL query!");
+		}
+		$sth = $this->_db->prepare($this->_sql);
+		if($sth->execute($data))
+			return true;
+		else
+			return false;
+		
+	}
 }
