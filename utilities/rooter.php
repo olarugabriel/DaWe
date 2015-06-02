@@ -1,5 +1,5 @@
 <?php
-$controller = "login";
+$controller = "Login";
 $action = "index";
 $query = null;
 if (isset($_GET['load']))
@@ -19,14 +19,15 @@ if (isset($_GET['load']))
 		$query = $params[2];
 	}
 }
-if(strcmp($controller,"login")!=0 && strcmp($controller,"Login")!=0)
+if(strcmp($controller,"Login")!=0 && strcmp($controller,"Inregistrare")!=0 )
 {
 
 	if(!isset($_SESSION['id']))
+	{
 		header('Location:/login/index');
+	}
 }
-if(strcmp($controller,"login")==0 || strcmp($controller,"Login")==0)
-{
+else{
 
 	if(isset($_SESSION['id']))
 		header('Location:/home');
