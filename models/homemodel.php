@@ -2,40 +2,25 @@
 
 class HomeModel extends Model
 {
-	public function getDatabase($id)
+	public function saveDB($name)
 	{
-		$sql = "SELECT b.NAME, b.id FROM DATABASEUSERJOIN 
-		AS a INNER JOIN databaseuser as b 
-		ON a.id_database=b.id where 
-		a.id_user= ?";
-		
+		$sql="CREATE DATABASE ".$name;
+		$this->_setSQL($sql);
+		$sql="INSERT INTO DATABASEUSER VALUES(?,?)";
 		$this->_setSql($sql);
-		$database = $this->getAll(array($id));
-		
-		if (empty($database))
+		if($this->executeSQL(array(NULL,$name)))
 		{
-			return false;
+			$id=$this->getDatabaseId($name);
+			$this->insertDBUserJoin($id['ID'],1);
+			return true;
 		}
-		$i=0;
-		foreach ($database as $data) {
-			$array[$data['NAME']]=$this->getTable($data['id']);
-		}
-		return $array;
+		return false;
 	}
-	public function getTable($id_table)
+
+	public function insertDBUserJoin($idDB,$idUser)
 	{
-		$sql = "SELECT b.name FROM
-		 (SELECT * FROM DATABASETABLEJOIN WHERE ID_DATABASE=?) AS a 
-		 INNER JOIN  tableuser as b on a.id_table=b.id";
-		
-		$this->_setSql($sql);
-		$table = $this->getAll(array($id_table));
-		
-		if (empty($table))
-		{
-			return false;
-		}
-		
-		return $table;
+		$sql="INSERT INTO databaseuserjoin VALUES(?,?,?)";
+		$this->_setSql($sql);	
+		$ok=$this->executeSQL(array(NULL,$idDB,$idUser));
 	}
 }
