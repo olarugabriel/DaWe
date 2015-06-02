@@ -25,15 +25,23 @@
                         ?>
                         <li>
                             <a href="/database/index/<?php echo $i; ?>"><?php echo $i; ?></a>
-                             <ol>
-                                <?php
-                                foreach ($value as $key => $v) {
+                            <?php
+                                     if(!empty($value))
+                                   { 
                                     ?>
-                                     <li class="file"><a href="/table/index/<?php echo $v['name'];  ?>"><?php echo $v['name'];  ?></a></li>
-                                    <?php
-                                }
-                                ?>
-                            </ol>
+                                     <ol>
+                                      <?php
+                                      foreach ($value as $key => $v) {
+                                        ?>
+                                         <li class="file"><a href="/table/index/<?php echo $v['name'];  ?>"><?php echo $v['name'];  ?></a></li>
+                                        <?php
+                                      }
+                                      ?>
+                                      </ol>
+
+                                  <?php
+                                     }
+                                  ?>
                         </li>   
                         <?php
                     }
@@ -95,7 +103,25 @@
                     <input type="submit" name="createTableSubmit" value="CREATE">
                     <input type="submit" name="cencelTableSubmit" value="CENCEL">
                 </form>
-    </section>    
+    </section>   
+      <section id="error">
+    <?php 
+        if (isset($errors)) 
+        {
+            echo '<ul>';
+            foreach ($errors as $e)
+            {
+                echo '<li>' . $e . '</li>';
+            }
+            echo '</ul>';
+        } 
+        
+        if (isset($saveError))
+        {
+            echo "<h2>Eroare la salvarea datelor. Reincercati!</h2>" . $saveError;
+        }
+        ?>
+        </section> 
     </main>
     <footer>
     </footer>

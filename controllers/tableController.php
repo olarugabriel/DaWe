@@ -9,7 +9,7 @@ class TableController extends Controller
 	public function index($name)
 	{
 		try {
-			$database=$this->_model->getDatabase(1);
+			$database=$this->_model->getDatabase($_SESSION['id']);
 			$info=$this->_model->getinfoTable($name);
 			$info2=null;
 			if(empty($info))
@@ -31,7 +31,7 @@ class TableController extends Controller
 	public function edit($lineNumber,$nameTable)
 	{
 		try {
-			$database=$this->_model->getDatabase(1);
+			$database=$this->_model->getDatabase($_SESSION['id']);
 			$info=$this->_model->getinfoTable($name);
 			$info2=null;
 			if(empty($info))

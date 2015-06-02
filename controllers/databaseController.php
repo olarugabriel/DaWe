@@ -9,7 +9,7 @@ class DatabaseController extends Controller
 	public function index($name)
 	{
 		try {
-			$database=$this->_model->getDatabase(1);
+			$database=$this->_model->getDatabase($_SESSION['id']);
 			$infoDatabase=$this->_model->getDatabaseId($name);
 			$this->_view->set('info', $database);
 			$this->_view->set('title', 'Database');
@@ -30,7 +30,7 @@ class DatabaseController extends Controller
 	{
 
 		try {
-			$database=$this->_model->getDatabase(1);
+			$database=$this->_model->getDatabase($_SESSION['id']);
 			$infoDatabase=$this->_model->getDatabaseId($name);
 			$this->_view->set('info', $database);
 			$this->_view->set('title', 'Database');
@@ -80,7 +80,7 @@ class DatabaseController extends Controller
         if (!$check)
 		{
             $this->_setView('index');
-            $database=$this->_model->getDatabase(1);
+            $database=$this->_model->getDatabase($_SESSION['id']);
 			$infoDatabase=$this->_model->getDatabaseId($namedb);
 			$this->_view->set('name', $name);
 			$this->_view->set('infoDatabase', $infoDatabase);
@@ -92,7 +92,7 @@ class DatabaseController extends Controller
 		}
 		try {
 			    $this->_setView('add');
-	            $database=$this->_model->getDatabase(1);
+	            $database=$this->_model->getDatabase($_SESSION['id']);
 				$infoDatabase=$this->_model->getDatabaseId($namedb);
 				$this->_view->set('name', $name);
 				$this->_view->set('infoDatabase', $infoDatabase);
@@ -157,7 +157,7 @@ class DatabaseController extends Controller
         if (!$check)
 		{
             $this->_setView('add');
-            $database=$this->_model->getDatabase(1);
+            $database=$this->_model->getDatabase($_SESSION['id']);
 			$infoDatabase=$this->_model->getDatabaseId($namedb);
 			$this->_view->set('name', $namedb);
 			$this->_view->set('infoDatabase', $infoDatabase);
@@ -170,7 +170,7 @@ class DatabaseController extends Controller
 		}
 		try {
 			    $this->_setView('index');
-	            $database=$this->_model->getDatabase(1);   
+	            $database=$this->_model->getDatabase($_SESSION['id']);   
 				$infoDatabase=$this->_model->getDatabaseId($namedb);
 				$this->_view->set('name', $namedb);
 				$this->_view->set('infoDatabase', $infoDatabase);
@@ -178,13 +178,23 @@ class DatabaseController extends Controller
 				$this->_view->set('info', $database);
 				 $tableSucces=$this->_model->createTable($nr,$nameTable,$name,$type,$field_type,$value,$checknull,$field_type_index,$checkai,$infoDatabase['ID']);
 				
-				// return $this->_view->output();
+				
 				if($tableSucces)
-					echo "bravo";
+					return $this->_view->output();
 				else
 					{
 						$ero=$this->_model->getErrors();
-						print_r($ero);
+						$this->_setView('add');
+			            $database=$this->_model->getDatabase($_SESSION['id']);
+						$infoDatabase=$this->_model->getDatabaseId($namedb);
+						$this->_view->set('name', $namedb);
+						$this->_view->set('infoDatabase', $infoDatabase);
+						$this->_view->set('info', $database);
+			            $this->_view->set('title', 'Invalid form data!');
+						$this->_view->set('errors', $ero);
+						$this->_view->set('formData', $_POST);
+						$this->_view->set('nr',$nr);
+						return $this->_view->output();
 					}
 
 			

@@ -10,7 +10,7 @@ class HomeController extends Controller
 	{
 		try {
 			
-			$database=$this->_model->getDatabase(1);
+			$database=$this->_model->getDatabase($_SESSION['id']);
 			$this->_view->set('info', $database);
 			$this->_view->set('title', 'Home');
 			
@@ -23,7 +23,7 @@ class HomeController extends Controller
 	public function add()
 	{
 		 $this->_setView('add');
-        $database=$this->_model->getDatabase(1);
+        $database=$this->_model->getDatabase($_SESSION['id']);
 			$this->_view->set('info', $database);
 			$this->_view->set('title', 'Home');
 			
@@ -50,7 +50,7 @@ class HomeController extends Controller
         if (!$check)
 		{
 			 $this->_setView('add');
-        	$database=$this->_model->getDatabase(1);
+        	$database=$this->_model->getDatabase($_SESSION['id']);
 			$this->_view->set('info', $database);
 			$this->_view->set('title', 'Home');
 			 $this->_view->set('title', 'Invalid form data!');
@@ -60,7 +60,7 @@ class HomeController extends Controller
 		}
 		try {
 			$this->_setView('add');
-       		$database=$this->_model->getDatabase(1);
+       		$database=$this->_model->getDatabase($_SESSION['id']);
        		$ok=$this->_model->saveDB($name);
 			$this->_view->set('info', $database);
 			$this->_view->set('title', 'Home');

@@ -2,7 +2,6 @@
 $controller = "login";
 $action = "index";
 $query = null;
-
 if (isset($_GET['load']))
 {
 	$params = array();
@@ -19,6 +18,18 @@ if (isset($_GET['load']))
 	{
 		$query = $params[2];
 	}
+}
+if(strcmp($controller,"login")!=0 && strcmp($controller,"Login")!=0)
+{
+
+	if(!isset($_SESSION['id']))
+		header('Location:/login/index');
+}
+if(strcmp($controller,"login")==0 || strcmp($controller,"Login")==0)
+{
+
+	if(isset($_SESSION['id']))
+		header('Location:/home');
 }
 $modelName = $controller;
 $controller .= 'Controller';
