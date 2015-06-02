@@ -19,7 +19,7 @@ if (isset($_GET['load']))
 		$query = $params[2];
 	}
 }
-if(strcmp($controller,"Login")!=0 && strcmp($controller,"Inregistrare")!=0 )
+if(strcmp($controller,"Login")!=0 && strcmp($controller,"Inregistrare")!=0 && strcmp($controller,"Administrator")!=0)
 {
 
 	if(!isset($_SESSION['id']))
