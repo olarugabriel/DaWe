@@ -1,5 +1,5 @@
 <?php
-$controller = "home";
+$controller = "login";
 $action = "index";
 $query = null;
 

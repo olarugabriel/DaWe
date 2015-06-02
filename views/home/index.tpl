@@ -2,8 +2,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-    <link href="main.css" type="text/css" rel="stylesheet" />
-    <link href="_styles.css" type="text/css" rel="stylesheet"/>
+    <link href="/views/home/css/main.css" type="text/css" rel="stylesheet" />
+    <link href="/views/home/css/_styles.css" type="text/css" rel="stylesheet"/>
 <title>DaWe</title>
 </head>
 <body>
@@ -16,27 +16,37 @@
     <main>
          <section id="left">
 
-             <span>BAZE DE DATE :</span>
+            <span><a href="/home/index">BAZE DE DATE :</a></span><br >
+             <span><a href="/home/add">New Database</a></span>
             <section id="tree">
                 <ol class="tree">
                     <?php
                     $k=1;
-					foreach ($info as $i => $value) {
-						?>
-						<li>
-	                        <label for="folder<?php echo $k; ?>"><?php echo $i; ?></label> <input type="checkbox"  id="folder<?php echo $k; $k++; ?>" /> 
-	                         <ol>
-								<?php
-								foreach ($value as $key => $v) {
-									?>
-									 <li class="file"><a href="/table/index"><?php echo $v['name'];  ?></a></li>
-									<?php
-								}
-								?>
-	  						</ol>
-	                   	</li>	
-						<?php
-		    		}
+
+      					foreach ($info as $i => $value) {
+      						?>
+      						<li>
+      	                        <a href="/database/index/<?php echo $i; ?>"><?php echo $i; ?></a>
+                                <?php
+                                     if(!empty($value))
+                                   { 
+                                    ?>
+          	                         <ol>
+                      								<?php
+                      								foreach ($value as $key => $v) {
+                      									?>
+                      								 <li class="file"><a href="/table/index/<?php echo $v['name'];  ?>"><?php echo $v['name'];  ?></a></li>
+                      									<?php
+                      								}
+                      								?>
+                      	  						</ol>
+
+                                  <?php
+                                     }
+                                  ?>
+      	                   	</li>	
+      						<?php
+      		    		}
                     ?>
 
                 
