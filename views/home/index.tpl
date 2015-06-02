@@ -5,6 +5,13 @@
     <link href="/views/home/css/main.css" type="text/css" rel="stylesheet" />
     <link href="/views/home/css/_styles.css" type="text/css" rel="stylesheet"/>
 <title>DaWe</title>
+
+ <header>
+        <section id="title">
+          <a href="/home/logout">Log Out</a>
+        </section>
+        <section id="bottomHeader"></section>
+  </header>
 </head>
 <body>
     <header>

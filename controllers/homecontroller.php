@@ -71,5 +71,11 @@ class HomeController extends Controller
 			echo '<h1>Application error:</h1>' . $e->getMessage();
 		}
 	}
+	
+	public function logout()
+	{
+		session_destroy(); //destroy the session
+		header('Location:/login/index'); //to redirect back to "index.php" after logging out
+	}
 
 }
