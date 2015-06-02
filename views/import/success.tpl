@@ -7,7 +7,8 @@
     </head>
     <body>
 	
-		<?php include HOME . DS .  'includes' . DS . 'menu.inc.php'; ?>
+		<?php include HOME . DS .  'includes' . DS . 'menu.inc.php'; 
+		?>
 		
 		<h1><?php echo $title; ?></h1>
 		<h2>Data imported with success!</h2>

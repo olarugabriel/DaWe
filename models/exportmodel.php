@@ -102,17 +102,17 @@ class ExportModel extends Model
 public function echocsv($fields)
 {
     $separator = '';
-    $i=0;//pt a elimina campurile duplicat
+    //pt a elimina campurile duplicat
     foreach ($fields as $field=>$val) {
-    	if($i%2==0)
-    	{
+    	
+    	
 	        if (preg_match('/\\r|\\n|,|"/', $val)) {
 	            $val = '"' . str_replace('"', '""', $val) . '"';
 	        }
 	        echo $separator . $val;
 	        $separator = ',';
-	    }
-	    $i++;
+	    
+	    
     }
     echo "\r\n";
 }
@@ -126,14 +126,14 @@ $result=$this->getAll();
 $filename = "Export_".date("Y-m-d-h-i-s-A");
 header('Content-Type: text/csv');
 header('Content-Disposition: attachment;filename="'.$filename.'.csv"');
-$i=0;
+
 foreach($result as $key1=> $val2)
 	     {
-	     	if($i==0)
-	     	{
+	     	
+	     	
 	     		 $this->echocsv(array_keys($val2));   
-				$i++;
-	     	}
+				
+	     	
 
 	       $this->echocsv($val2);        
 	    }
