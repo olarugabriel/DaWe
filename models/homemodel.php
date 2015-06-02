@@ -11,7 +11,7 @@ class HomeModel extends Model
 		if($this->executeSQL(array(NULL,$name)))
 		{
 			$id=$this->getDatabaseId($name);
-			$this->insertDBUserJoin($id['ID'],1);
+			$this->insertDBUserJoin($id['ID'],$_SESSION['id']);
 			return true;
 		}
 		return false;

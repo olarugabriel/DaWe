@@ -77,45 +77,8 @@ else
         <section id="bottomHeader"></section>
     </header>
     <main>
-         <section id="left">
-
-             <span><a href="/home/index">BAZE DE DATE :</a></span><br >
-             <span><a href="/home/add">New Database</a></span>
-            <section id="tree">
-
- <!--                <ol class="tree">
-                    <?php
-                    foreach ($info as $i => $value) {
-                        ?>
-                        <li>
-                            <a href="/database/index/<?php echo $i; ?>"><?php echo $i; ?></a>
-                              <?php
-                                     if(!empty($value))
-                                   { 
-                                    ?>
-                                     <ol>
-                                      <?php
-                                      foreach ($value as $key => $v) {
-                                        ?>
-                                         <li class="file"><a href="/table/index/<?php echo $v['name'];  ?>"><?php echo $v['name'];  ?></a></li>
-                                        <?php
-                                      }
-                                      ?>
-                                      </ol>
-
-                                  <?php
-                                     }
-                                  ?>
-                        </li>   
-                        <?php
-                    }
-                    ?>
-
-                
-                </ol> -->
-
-               </section>
-        </section>
+         <?php include HOME . DS .  'includes' . DS . 'menu.inc.php'; 
+    ?>
 <section id="right">               
             <section id="formBox"> 
                         <main>  

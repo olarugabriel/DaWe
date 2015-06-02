@@ -72,7 +72,7 @@ class LoginController extends Controller
 				else
 				{
 
-		             $this->_setView('index');
+		            $this->_setView('index');
 		            array_push($errors, "Nume/Parola gresite!");
 		            $this->_view->set('title', 'User/Parola sunt gresite!');
 		            $this->_view->set('errors', $errors);

@@ -26,7 +26,6 @@ class HomeController extends Controller
         $database=$this->_model->getDatabase($_SESSION['id']);
 			$this->_view->set('info', $database);
 			$this->_view->set('title', 'Home');
-			
 			return $this->_view->output();
 	}
 	public function save()
@@ -59,9 +58,9 @@ class HomeController extends Controller
 			return $this->_view->output();
 		}
 		try {
-			$this->_setView('add');
-       		$database=$this->_model->getDatabase($_SESSION['id']);
+			$this->_setView('index');
        		$ok=$this->_model->saveDB($name);
+       		$database=$this->_model->getDatabase($_SESSION['id']);
 			$this->_view->set('info', $database);
 			$this->_view->set('title', 'Home');
 			

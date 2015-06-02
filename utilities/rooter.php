@@ -24,6 +24,7 @@ if(strcmp($controller,"Login")!=0 && strcmp($controller,"Inregistrare")!=0 && st
 
 	if(!isset($_SESSION['id']))
 	{
+		
 		header('Location:/login/index');
 	}
 }
