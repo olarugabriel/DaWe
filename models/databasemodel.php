@@ -49,8 +49,8 @@ class DatabaseModel extends Model
 		$this->_setSql($sql);	
 		$table=$this->getAll();
 		foreach ($table as $key => $value) {
-			 $name=$this->getTableId($value['ID_TABLE']);
-			 $this->dropTable($name['NAME']);
+			 $name2=$this->getTableId($value['ID_TABLE']);
+			 $this->dropTable($name2['NAME']);
 		}
 		echo  $name;
 		$sql="DELETE FROM databaseuser WHERE NAME='".$name."'";
@@ -62,6 +62,12 @@ class DatabaseModel extends Model
 		$table=$this->executeSQL();
 		
 		
+	}
+	public function changeNameDB($name,$old)
+	{
+		$sql="UPDATE databaseuser SET NAME=? WHERE NAME=?";
+		$this->_setSql($sql);
+		$this->executeSQL(array($name,$old));
 	}
 
 

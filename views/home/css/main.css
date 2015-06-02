@@ -1,6 +1,6 @@
 body
 {
-background-image: url(bkg.png), #b2b2b2;
+background-image: url(images/bkg.png), #b2b2b2;
     background-repeat: repeat-x, repeat;
     padding: 15px;
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#b2b2b2',GradientType=0 ); /* IE6-9 */
@@ -16,7 +16,7 @@ header
 }
 header #title
 {
-    background: url("/../../title.png") no-repeat;
+    background: url("images/title.png") no-repeat;
     
     height:200px;
     width:90%;
@@ -96,3 +96,7 @@ span
     padding-left: 0.41cm;
 }
 
+a
+{
+    text-decoration: none;
+}

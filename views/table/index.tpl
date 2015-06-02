@@ -65,12 +65,9 @@
                             <tr>
                              <th>OPTIONS</th>
                     <?php
-                        foreach ($infoTable as $key => $value) {
-                                foreach($value as $key2=>$value2)
-                                {
-                                    echo '<th >'.$key2.'</th>';
-                                    break;
-                                }
+                                 foreach ($infoTable2 as $key => $value) {
+        
+                                     echo '<th >'.$value['COLUMN_NAME'].'</th>';
                         }
                     ?>
 
@@ -82,7 +79,7 @@
                             $i=0;
                             foreach ($infoTable as $key => $value) {
                                  echo '<tr>';
-                               echo '<th><a href="/table/edit/'.$i.'%'.$nameTable.'">Edit </a> <a href="/table/delete/'.$i.'-'.$nameTable.'">Delete</a></th>';
+                               echo '<th><a href="/table/edit/'.$i.'-'.$nameTable.'">Edit </a> <a href="/table/delete/'.$i.'-'.$nameTable.'">Delete</a></th>';
                                     foreach($value as $key2=>$value2)
                                     {
                                         echo '<th >'.$value2.'</th>';
@@ -95,6 +92,7 @@
                          </tbody>
                          </table>
                            <a href="/table/drop/<?php echo $nameTable;?>">Drop table</a>
+                            <a href="/table/add/<?php echo $nameTable;?>">Insert </a>
                         <?php 
             }
             else
@@ -114,6 +112,7 @@
                     </thead>
                     </table>
                       <a href="/table/drop/<?php echo $nameTable;?>">Drop table</a>
+                       <a href="/table/add/<?php echo $nameTable;?>">Insert </a>
                 <?php
 
             }

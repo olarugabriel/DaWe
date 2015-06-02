@@ -24,7 +24,7 @@ class DatabaseController extends Controller
 	public function drop($name)
 	{
 		$this->_model->dropDatabase($name);
-		header('Location:/database/index');
+		//header('Location:/database/index');
 	}
 	public function edit($name)
 	{
@@ -44,14 +44,14 @@ class DatabaseController extends Controller
 	}
 	public function add($namedb=null)
 	{
-		 if (!isset($_POST['addFormSubmit']))
+		if (!isset($_POST['addFormSubmit']))
 		{
 			header('Location:/database/index');
 		}
 		
 		$errors = array();
 		$check = true;
-			
+
 		$name = isset($_POST['name']) ? trim($_POST['name']) : NULL;
 		$nr = isset($_POST['nr']) ? trim($_POST['nr']) : NULL;
 		if (empty($name))
@@ -59,7 +59,7 @@ class DatabaseController extends Controller
 			$check = false;
 			array_push($errors, "Name is required!");
 		}
-			
+
 		if (empty($nr))
 		{
 			$check = false;
@@ -77,30 +77,30 @@ class DatabaseController extends Controller
 			}
 		}
 		
-        if (!$check)
+		if (!$check)
 		{
-            $this->_setView('index');
-            $database=$this->_model->getDatabase($_SESSION['id']);
+			$this->_setView('index');
+			$database=$this->_model->getDatabase($_SESSION['id']);
 			$infoDatabase=$this->_model->getDatabaseId($namedb);
 			$this->_view->set('name', $name);
 			$this->_view->set('infoDatabase', $infoDatabase);
 			$this->_view->set('info', $database);
-            $this->_view->set('title', 'Invalid form data!');
+			$this->_view->set('title', 'Invalid form data!');
 			$this->_view->set('errors', $errors);
 			$this->_view->set('formData', $_POST);
 			return $this->_view->output();
 		}
 		try {
-			    $this->_setView('add');
-	            $database=$this->_model->getDatabase($_SESSION['id']);
-				$infoDatabase=$this->_model->getDatabaseId($namedb);
-				$this->_view->set('name', $name);
-				$this->_view->set('infoDatabase', $infoDatabase);
-				$this->_view->set('info', $database);
-	            $this->_view->set('title', 'Add table!');
-	            $this->_view->set('namedb',$namedb);
-	            $this->_view->set('nr',$nr);
-				return $this->_view->output();
+			$this->_setView('add');
+			$database=$this->_model->getDatabase($_SESSION['id']);
+			$infoDatabase=$this->_model->getDatabaseId($namedb);
+			$this->_view->set('name', $name);
+			$this->_view->set('infoDatabase', $infoDatabase);
+			$this->_view->set('info', $database);
+			$this->_view->set('title', 'Add table!');
+			$this->_view->set('namedb',$namedb);
+			$this->_view->set('nr',$nr);
+			return $this->_view->output();
 			
 		}catch (Exception $e) {
 			echo '<h1>Application error:</h1>' . $e->getMessage();
@@ -113,7 +113,7 @@ class DatabaseController extends Controller
 		{
 			header('Location:/database/index/'.$namedb);
 		}
-		 if (!isset($_POST['createTableSubmit']))
+		if (!isset($_POST['createTableSubmit']))
 		{
 			header('Location:/database/index');
 		}
@@ -154,52 +154,89 @@ class DatabaseController extends Controller
 			}
 		}
 		
-        if (!$check)
+		if (!$check)
 		{
-            $this->_setView('add');
-            $database=$this->_model->getDatabase($_SESSION['id']);
+			$this->_setView('add');
+			$database=$this->_model->getDatabase($_SESSION['id']);
 			$infoDatabase=$this->_model->getDatabaseId($namedb);
 			$this->_view->set('name', $namedb);
 			$this->_view->set('infoDatabase', $infoDatabase);
 			$this->_view->set('info', $database);
-            $this->_view->set('title', 'Invalid form data!');
+			$this->_view->set('title', 'Invalid form data!');
 			$this->_view->set('errors', $errors);
 			$this->_view->set('formData', $_POST);
-			   $this->_view->set('nr',$nr);
+			$this->_view->set('nr',$nr);
 			return $this->_view->output();
 		}
 		try {
-			    $this->_setView('index');
-	            $database=$this->_model->getDatabase($_SESSION['id']);   
+			$this->_setView('index');
+			$database=$this->_model->getDatabase($_SESSION['id']);   
+			$infoDatabase=$this->_model->getDatabaseId($namedb);
+			$this->_view->set('name', $namedb);
+			$this->_view->set('infoDatabase', $infoDatabase);
+			$this->_view->set('title', 'Database!');
+			$this->_view->set('info', $database);
+			$tableSucces=$this->_model->createTable($nr,$nameTable,$name,$type,$field_type,$value,$checknull,$field_type_index,$checkai,$infoDatabase['ID']);
+
+
+			if($tableSucces)
+				return $this->_view->output();
+			else
+			{
+				$ero=$this->_model->getErrors();
+				$this->_setView('add');
+				$database=$this->_model->getDatabase($_SESSION['id']);
 				$infoDatabase=$this->_model->getDatabaseId($namedb);
 				$this->_view->set('name', $namedb);
 				$this->_view->set('infoDatabase', $infoDatabase);
-				  $this->_view->set('title', 'Database!');
 				$this->_view->set('info', $database);
-				 $tableSucces=$this->_model->createTable($nr,$nameTable,$name,$type,$field_type,$value,$checknull,$field_type_index,$checkai,$infoDatabase['ID']);
-				
-				
-				if($tableSucces)
-					return $this->_view->output();
-				else
-					{
-						$ero=$this->_model->getErrors();
-						$this->_setView('add');
-			            $database=$this->_model->getDatabase($_SESSION['id']);
-						$infoDatabase=$this->_model->getDatabaseId($namedb);
-						$this->_view->set('name', $namedb);
-						$this->_view->set('infoDatabase', $infoDatabase);
-						$this->_view->set('info', $database);
-			            $this->_view->set('title', 'Invalid form data!');
-						$this->_view->set('errors', $ero);
-						$this->_view->set('formData', $_POST);
-						$this->_view->set('nr',$nr);
-						return $this->_view->output();
-					}
+				$this->_view->set('title', 'Invalid form data!');
+				$this->_view->set('errors', $ero);
+				$this->_view->set('formData', $_POST);
+				$this->_view->set('nr',$nr);
+				return $this->_view->output();
+			}
 
 			
 		}catch (Exception $e) {
 			echo '<h1>Application error:</h1>' . $e->getMessage();
 		}
+	}
+	public function changeNameDB()
+	{
+		$check=true;
+		$errors = array();
+		if (!isset($_POST['changeNameDb']))
+		{
+			header('Location:/database/index');
+		}
+		$nameDB=isset($_POST['nameDB']) ? trim($_POST['nameDB']) : NULL;
+		$old=isset($_POST['oldName']) ? trim($_POST['oldName']) : NULL;
+		if (empty($nameDB))
+		{
+			$check = false;
+			array_push($errors, "Name is required!");
+		}
+		if (!$check)
+		{
+			$this->_setView('edit');
+			$database=$this->_model->getDatabase($_SESSION['id']);
+			$infoDatabase=$this->_model->getDatabaseId($nameDB);
+			$this->_view->set('name', $nameDB);
+			$this->_view->set('infoDatabase', $infoDatabase);
+			$this->_view->set('info', $database);
+			$this->_view->set('title', 'Invalid form data!');
+			$this->_view->set('errors', $errors);
+			$this->_view->set('formData', $_POST);
+			return $this->_view->output();
+		}
+		try {
+				$this->_model->changeNameDB($nameDB,$old);
+				header('Location:/database/index');
+
+		}catch (Exception $e) {
+			echo '<h1>Application error:</h1>' . $e->getMessage();
+		}
+
 	}
 }

@@ -10,6 +10,14 @@ class TableModel extends Model
 		return $table;
 
 	}
+	public function getinfoRowTable($nameTable,$lineNumber)
+	{
+		$sql="SELECT * FROM ".$nameTable." LIMIT 1 OFFSET ".$lineNumber;
+		$this->_setSql($sql);	
+		$table=$this->getRow();
+		return $table;
+
+	}
 	public function getTableColumn($name)
 	{
 		$sql="SELECT * from INFORMATION_SCHEMA.COLUMNS where TABLE_NAME='".$name."'";
@@ -37,6 +45,49 @@ class TableModel extends Model
 		echo $key1;
 		$this->deleteRow($key1,$table[$key1],$nameTable);
 		
+	}
+	public function change($post)
+	{
+		$i=1;
+		$sql="UPDATE ".$post['table']." set ";
+		foreach ($post as $key => $value) {
+			$i++;
+			if($i==$post['nr'])
+			{
+				$sql.=$key."='".$value."'";
+				break;
+			}
+			else
+			{
+				$sql.=$key."='".$value."' ,";
+			}
+			
+		}
+		$sql.=" where ".$post['cheie']."='".$post['val']."'";
+		$this->_setSql($sql);
+		$this->executeSQL();
+		header('Location:/table/index/'.$post['table']);
+	}
+	public function insert($post)
+	{
+		$i=1;
+		$sql="insert into  ".$post['table']." VALUES (";
+		foreach ($post as $key => $value) {
+			$i++;
+			if($i==$post['nr'])
+			{
+				$sql.="'".$value."'";
+				break;
+			}
+			else
+			{
+				$sql.="'".$value."',";
+			}
+			
+		}
+		$sql.=" )";
+		$this->_setSql($sql);
+		$this->executeSQL();
 	}
 	
 	

@@ -40,7 +40,7 @@ class Model
 		
 		$sth = $this->_db->prepare($this->_sql);
 		$sth->execute($data);
-		return $sth->fetch();
+		return $sth->fetch(PDO::FETCH_ASSOC);
 	}
 	public function getDatabase($id_user)
 	{

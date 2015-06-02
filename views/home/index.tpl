@@ -60,27 +60,27 @@
 
                 <div class= "pozitionare">
                    <div class="img">
-                     <a  href="/sql/index"><img src="icons/01.png" alt="" ><div class="desc"><h4>SQL</h4></div></a>
+                     <a  href="/sql/index"><img src="/views/home/css/images/01.png" alt="" ><div class="desc"><h4>SQL</h4></div></a>
                     </div>
 
                     <div class="img">
-                     <a  href="/utilizatori/index"><img src="icons/02.png" alt="" ><div class="desc"><h4>UTILIZATORI</h4></div></a>
+                     <a  href="/utilizatori/index"><img src="/views/home/css/images/02.png" alt="" ><div class="desc"><h4>UTILIZATORI</h4></div></a>
                     </div>
                     
                     <div class="img">
-                     <a  href="/cauta/index"><img src="icons/03.png" alt="" > <div class="desc"><h4>CAUTA</h4></div></a>
+                     <a  href="/cauta/index"><img src="/views/home/css/images/03.png" alt="" > <div class="desc"><h4>CAUTA</h4></div></a>
                     </div>   
 
                     <div class="img">
-                     <a href="/setari/index"><img src="icons/04.png" alt="" ><div class="desc"><h4>SETARI</h4></div></a>
+                     <a href="/setari/index"><img src="/views/home/css/images/04.png" alt="" ><div class="desc"><h4>SETARI</h4></div></a>
                     </div>
 
                     <div class="img">
-                     <a href="/export/index"><img src="icons/05.png" alt="" ><div class="desc"><h4>EXPORTA</h4></div></a>
+                     <a href="/export/index"><img src="/views/home/css/images/05.png" alt="" ><div class="desc"><h4>EXPORTA</h4></div></a>
                     </div>
 
                     <div class="img">
-                     <a  href="/import/index"><img src="icons/06.png" alt=""><div class="desc"><h4>IMPORTA</h4></div></a>
+                     <a  href="/import/index"><img src="/views/home/css/images/06.png" alt=""><div class="desc"><h4>IMPORTA</h4></div></a>
                     </div>   
 
             </section> 

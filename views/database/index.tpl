@@ -58,17 +58,17 @@
 
                 <div class= "pozitionare">
                      <div class="img">
-                     <a  href="/database/drop/<?php echo $infoDatabase['NAME']; ?>"><img src="icons/01.png" alt="" ><div class="desc"><h4>Drop</h4></div></a>
+                     <a  href="/database/drop/<?php echo $infoDatabase['NAME']; ?>"><img src="/views/home/css/images/07.png" alt="" width="10" height="50" ><div class="desc"><h4>Drop</h4></div></a>
                     </div>
                     <div class="img">
-                     <a  href="/database/edit/<?php echo $infoDatabase['NAME']; ?>"><img src="icons/01.png" alt="" ><div class="desc"><h4>Edit</h4></div></a>
+                     <a  href="/database/edit/<?php echo $infoDatabase['NAME']; ?>"><img src="/views/home/css/images/08.png" alt="" width="10" height="50" ><div class="desc"><h4>Edit</h4></div></a>
                     </div>
                     <div class="img">
-                     <a href="/database/export/<?php echo $infoDatabase['NAME']; ?>"><img src="icons/05.png" alt="" ><div class="desc"><h4>EXPORTA</h4></div></a>
+                     <a href="/database/export/<?php echo $infoDatabase['NAME']; ?>"><img src="/views/home/css/images/05.png" alt="" width="10" height="50" ><div class="desc"><h4>EXPORTA</h4></div></a>
                     </div>
 
                     <div class="img">
-                     <a  href="/datatabase/importa/<?php echo $infoDatabase['NAME']; ?>"><img src="icons/06.png" alt=""><div class="desc"><h4>IMPORTA</h4></div></a>
+                     <a  href="/datatabase/importa/<?php echo $infoDatabase['NAME']; ?>"><img src="/views/home/css/images/06.png" alt="" width="10" height="50"><div class="desc"><h4>IMPORTA</h4></div></a>
                     </div> 
                    
             </section> <br ><br >

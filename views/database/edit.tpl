@@ -20,20 +20,27 @@
             <section id="tree">
                 <ol class="tree">
                     <?php
-                    $k=1;
                     foreach ($info as $i => $value) {
                         ?>
                         <li>
                             <a href="/database/index/<?php echo $i; ?>"><?php echo $i; ?></a>
-                             <ol>
-                                <?php
-                                foreach ($value as $key => $v) {
+                              <?php
+                                     if(!empty($value))
+                                   { 
                                     ?>
-                                     <li class="file"><a href="/table/index/<?php echo $v['name'];  ?>"><?php echo $v['name'];  ?></a></li>
-                                    <?php
-                                }
-                                ?>
-                            </ol>
+                                     <ol>
+                                      <?php
+                                      foreach ($value as $key => $v) {
+                                        ?>
+                                         <li class="file"><a href="/table/index/<?php echo $v['name'];  ?>"><?php echo $v['name'];  ?></a></li>
+                                        <?php
+                                      }
+                                      ?>
+                                      </ol>
+
+                                  <?php
+                                     }
+                                  ?>
                         </li>   
                         <?php
                     }
@@ -45,7 +52,11 @@
             </section>
         </section>
         <section id="right">
- 
+                <form action="/database/changeNameDB" method="POST" >
+                    <input type="text" name="nameDB" value="<?php echo $name; ?>">
+                    <input type="hidden" name="oldName" value="<?php echo $name; ?>">
+                    <input type="submit" value="Change" name="changeNameDb">
+                </form>
            
             
     </section>    
