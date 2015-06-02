@@ -8,9 +8,22 @@ class LoginController extends Controller
 		$this->_setModel($model);
 	}
 	public function index()
+
 	{
-		$this->_view->set('title', 'Simple site Contact Form');
-		return $this->_view->output();
+		if(!isset($_SESSION)) 
+		{
+	     	session_start();
+		}
+		if(isset($_SESSION['id']) && isset($_SESSION['name']) )
+		{
+			header('Location: /home/index');
+		}
+		else
+		{
+			$this->_view->set('title', '');
+			return $this->_view->output();
+		}
+		
 	}
 
     public function save()
@@ -41,7 +54,7 @@ class LoginController extends Controller
         if (!$check)
 		{
             $this->_setView('index');
-            $this->_view->set('title', 'Invalid form data!');
+            $this->_view->set('title', 'Date invalide!');
 			$this->_view->set('errors', $errors);
 			$this->_view->set('formData', $_POST);
 			return $this->_view->output();
@@ -49,15 +62,15 @@ class LoginController extends Controller
 			
 		try {
 					
-			$contact = new LoginModel();
-			$contact->setName($name);
-			$contact->setPassword($password);
-			$var=$contact->store();
+			$login = new LoginModel();
+			$login->setName($name);
+			$login->setPassword($password);
+			$var=$login->store();
 			if(!empty ($var))
 			{
 				
 				$this->_setView('success');
-				$this->_view->set('title', 'Store success!');
+				$this->_view->set('title', 'Logare cu succes!');
 						
 				$data = array(
 					'name' => $name,
@@ -71,14 +84,14 @@ class LoginController extends Controller
 				{
 
 		            $this->_setView('index');
-		            $this->_view->set('title', 'User/PArola sunt gresite!');
+		            $this->_view->set('title', 'User/Parola sunt gresite!');
 					return $this->_view->output();
 				
 				}	
 				
 		} catch (Exception $e) {
             $this->_setView('index');
-            $this->_view->set('title', 'There was an error saving the data!');
+            $this->_view->set('title', 'Eroare la salvarea datelor!');
             $this->_view->set('formData', $_POST);
 			$this->_view->set('saveError', $e->getMessage());
 		}

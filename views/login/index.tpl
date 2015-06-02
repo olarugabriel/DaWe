@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,23 +7,21 @@
 </head>
 <body>
     <header>
-        <section id="title">
-        
-        </section>
+        <section id="title"></section>
         <section id="bottomHeader"></section>
     </header>
     <main>
         <section></section>
-        <form action="/login/save" method="post" autocomplete="off"> 
+        <form action="/login/save" method="post"> 
             <section id="formBox">
                 <section>
                 <div id="allForm">
                 <h1>Logare sau <span>Inregistrare</span></h1>
                     <span class="type">USERNAME:</span><br>
-                    <input type="text" name="name">
+                    <input type="text" name="name"  autocomplete="off"/>
                     <br>
                     <span class="type">PASSWORD:</span><br>
-                    <input type="password" name="password">
+                    <input type="password" name="password"  autocomplete="off"/>
                     <br><br>
                     <input class="button" name="loginFormSubmit" type="submit" value="Logare">
                     <a  href="/inregistrare/index">
@@ -34,6 +31,7 @@
             </section>
         </section>  
     <section id="error">
+	<h1><?php echo $title; ?></h1>
     <?php 
         if (isset($errors)) 
         {
@@ -50,7 +48,7 @@
             echo "<h2>Eroare la salvarea datelor. Reincercati!</h2>" . $saveError;
         }
         ?>
-        </section>
+    </section>
     </main>
     <footer>
     </footer>
