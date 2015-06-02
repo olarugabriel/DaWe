@@ -8,23 +8,11 @@ class LoginController extends Controller
 		$this->_setModel($model);
 	}
 	public function index()
-
-	{
-		if(!isset($_SESSION)) 
-		{
-	     	session_start();
-		}
-		if(isset($_SESSION['id']) && isset($_SESSION['name']) )
-		{
-			header('Location: /home/index');
-		}
-		else
-		{
+{
 			$this->_view->set('title', '');
 			return $this->_view->output();
-		}
+}
 		
-	}
 
     public function save()
     {
@@ -68,7 +56,8 @@ class LoginController extends Controller
 			$var=$login->store();
 			if(!empty ($var))
 			{
-				
+				$_SESSION['id']=$var['ID'];
+				$_SESSION['name']=$var['NAME'];
 				$this->_setView('success');
 				$this->_view->set('title', 'Logare cu succes!');
 						
