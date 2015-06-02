@@ -34,7 +34,7 @@ $this->myprint_r($result);
 
 
 
-// Dump variable containing the result of the MySQL query
+
 // echo '<pre>';
 // print_r($result);
 

@@ -13,7 +13,7 @@ class ExportController extends Controller
 		{
 			$this->_view->set('title','EXPORT');
 			return $this->_view->output();
-			// $database=$this->_model->export('user');
+			
 			
 		}
 		catch (Exception $e) {
@@ -21,12 +21,18 @@ class ExportController extends Controller
 		}
 	}
 	public function downloadxml()
-	{
-		$database=$this->_model->exportxml('user');
+	{ echo $_POST['name'];
+		// $database=$this->_model->exportxml('user');
+		$this->_model->exportxml($_POST['name']);
 	}
 	public function downloadcsv()
 	{
-		$database=$this->_model->exportcsv('user');
+		// $database=$this->_model->exportcsv('user');
+		$this->_model->exportcsv($_POST['table']);
+		//  echo "your table: "; 
+		// echo $_POST['table'];
+		// echo"was successfully exported in CSV!";
+	
 	}
 	// public function downloadxls()
 	// {
