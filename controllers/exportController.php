@@ -22,11 +22,11 @@ class ExportController extends Controller
 	}
 	public function downloadxml()
 	{
-		$database=$this->_model->exportxml('user');
+		$database=$this->_model->exportxml('database');
 	}
 	public function downloadcsv()
 	{
-		$database=$this->_model->exportcsv('user');
+		$database=$this->_model->exportcsv('database');
 	}
 	// public function downloadxls()
 	// {

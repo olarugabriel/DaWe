@@ -12,8 +12,8 @@
         <h1><?php  echo $title; ?></h1>
         </section>
         <section id="bottomHeader"></section>
-        <a href="export/downloadxml">DownloadXML</a>
-        <a href="export/downloadcsv">DownloadCSV</a>
+        <a href="/export/downloadxml">DownloadXML</a>
+        <a href="/export/downloadcsv">DownloadCSV</a>
         <!-- <a href="export/downloadxls">DownloadXLS</a> -->
     </header>
     <main>  

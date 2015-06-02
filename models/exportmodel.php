@@ -32,11 +32,11 @@ class ExportModel extends Model
 		$result=$this->getAll();
 	    $text .='
 	    <table_'.$table.'>';
-	    $i=0;
+	    //$i=0;
 	     foreach($result as $key1=> $val2)
 	     {
-	     	if($i%2==0)
-	     	{
+	     	//if($i%2==0)
+	     	//{
 	        $text .=  "
 	        <$table>";
 
@@ -50,8 +50,8 @@ class ExportModel extends Model
 	            }
 	        $text .= "
 	        </$table>";
-	    }
-	    $i++;
+	   // }
+//$i++;
 	    }
 
 	    $text .= "
@@ -102,17 +102,17 @@ class ExportModel extends Model
 public function echocsv($fields)
 {
     $separator = '';
-    $i=0;//pt a elimina campurile duplicat
+    //$i=0;//pt a elimina campurile duplicat
     foreach ($fields as $field=>$val) {
-    	if($i%2==0)
-    	{
+    	//if($i%2==0)
+    	//{
 	        if (preg_match('/\\r|\\n|,|"/', $val)) {
 	            $val = '"' . str_replace('"', '""', $val) . '"';
 	        }
 	        echo $separator . $val;
 	        $separator = ',';
-	    }
-	    $i++;
+	   // }
+	   // $i++;
     }
     echo "\r\n";
 }
