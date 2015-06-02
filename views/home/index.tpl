@@ -14,12 +14,7 @@
   </header>
 </head>
 <body>
-    <header>
-        <section id="title">
-
-        </section>
-        <section id="bottomHeader"></section>
-    </header>
+   
     <main>
          <section id="left">
 
