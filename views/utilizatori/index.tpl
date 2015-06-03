@@ -4,18 +4,20 @@
 <meta charset="UTF-8">
     <link href="/views/home/css/main.css" type="text/css" rel="stylesheet" />
     <link href="/views/home/css/_styles.css" type="text/css" rel="stylesheet"/>
+      <link href="/views/utilizatori/css/utilizatori.css" type="text/css" rel="stylesheet"/>
 <title>DaWe</title>
 </head>
 <body>
     <header>
         <section id="title">
-        <h1><?php  echo $title; ?></h1>
+       
         </section>
+
         <section id="bottomHeader"></section>
     </header>
     <main>  
         <section id="right">
-         
+           <a class="button_example" href="/utilizatori/index/" >Utilizatori</a> 
                     <section id="formBox">
                     <?php 
                     if(!empty($infoUser))
