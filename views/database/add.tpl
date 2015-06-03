@@ -9,7 +9,7 @@
 <body>
     <header>
         <section id="title">
-        <?php echo $title; ?>
+      
         </section>
         <section id="bottomHeader"></section>
     </header>

@@ -77,8 +77,8 @@ else
         <section id="bottomHeader"></section>
     </header>
     <main>
-         <?php include HOME . DS .  'includes' . DS . 'menu.inc.php'; 
-    ?>
+        <!--  <?php include HOME . DS .  'includes' . DS . 'menu.inc.php'; 
+    ?> -->
 <section id="right">               
             <section id="formBox"> 
                         <main>  
@@ -128,8 +128,16 @@ else
                         
                         </form>
                 </div>
+<button onclick="goBack()">Go Back</button>
+     
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
             </section>
-        </section>  
+        </section> 
+
         </section>
     </main>
     <footer>

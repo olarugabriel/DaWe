@@ -10,7 +10,7 @@
 <body>
   <header>
     <section id="title">
-      <?php echo $title; ?>
+      
     </section>
     <section id="bottomHeader"></section>
   </header>
@@ -38,6 +38,7 @@
          </div> 
 
        </section> <br ><br >
+       
        <section id="addForm" >
         <form action="/database/add/<?php echo $infoDatabase['NAME']; ?>" method="POST">
           <span class="type" ><br>Name:</span><br>

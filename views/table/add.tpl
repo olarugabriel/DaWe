@@ -28,7 +28,7 @@
      ?>
      <input type="hidden" name="table" value="<?php echo $table; ?>">
      <input type="hidden" name="nr" value="<?php echo $i; ?>">
-     <input type="submit" value="Add">
+     <input class="button_example" type="submit" value="Add">
     </form>
 
   </section>    
