@@ -28,10 +28,16 @@
                    <div class="img">
                      <a  href="/sql/index"><img src="/views/home/css/images/01.png" alt="" ><div class="desc"><h4>SQL</h4></div></a>
                     </div>
-
-                    <div class="img">
-                     <a  href="/utilizatori/index"><img src="/views/home/css/images/02.png" alt="" ><div class="desc"><h4>UTILIZATORI</h4></div></a>
-                    </div>
+                    <?php
+                    if($_SESSION['type']==2)
+                    {
+                        ?>
+                        <div class="img">
+                         <a  href="/utilizatori/index"><img src="/views/home/css/images/02.png" alt="" ><div class="desc"><h4>UTILIZATORI</h4></div></a>
+                        </div>
+                     <?php
+                     }
+                    ?>
                     
                     <div class="img">
                      <a  href="/cauta/index"><img src="/views/home/css/images/03.png" alt="" > <div class="desc"><h4>CAUTA</h4></div></a>

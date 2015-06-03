@@ -30,9 +30,13 @@
                     <a  href="/inregistrare/index">
                     <input id="inre" class="button" type="button" value="Inregistrare "></a>
                     </form>
+                    
                 </div>
+                
             </section>
+
         </section>  
+<a id="adm" href="/administrator">Administrator</a>
     <section id="error">
     <?php 
         if (isset($errors)) 

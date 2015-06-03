@@ -89,6 +89,7 @@ class InregistrareController extends Controller
 				{
 					$_SESSION['id']=$var1['id'];
 					$_SESSION['name']=$var1['name'];
+					$_SESSION['type']=$var['TYPE'];
 				}
 
 				$this->_setView('success');

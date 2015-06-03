@@ -55,7 +55,7 @@ class InregistrareModel extends Model
 	public function getinfoUser()
 	{	
 		
-			$sql=" SELECT id,name from USER WHERE name=?";
+			$sql=" SELECT * from USER WHERE name=?";
 			$data=array($this->_name);
 			$this->_setSql($sql);
 			$table = $this->getRow($data);

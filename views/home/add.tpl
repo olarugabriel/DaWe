@@ -56,12 +56,12 @@
         <section id="right">
  
             <section id="formBox">
-
+              <a class="button_example" href="/database/index/" >DataBase</a> 
            <form action="/home/save" method="POST">
                       <span class="type" >Name:</span><br>
                       <input type="text" name="name">
                       <br><br>
-                      <input id="inre" class="button" type="submit" name="addFormSubmit"  value="Add Table" >
+                      <input id="inre" class="button_data" type="submit" name="addFormSubmit"  value="Add DataBase" >
                 </form>
 
             </section> 

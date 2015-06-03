@@ -24,7 +24,7 @@ class DatabaseController extends Controller
 	public function drop($name)
 	{
 		$this->_model->dropDatabase($name);
-		//header('Location:/database/index');
+		header('Location:/database/index');
 	}
 	public function edit($name)
 	{

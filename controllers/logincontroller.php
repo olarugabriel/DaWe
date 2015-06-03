@@ -58,6 +58,7 @@ class LoginController extends Controller
 			{
 				$_SESSION['id']=$var['ID'];
 				$_SESSION['name']=$var['NAME'];
+				$_SESSION['type']=$var['TYPE'];
 				$this->_setView('success');
 				$this->_view->set('title', 'Logare cu succes!');
 						

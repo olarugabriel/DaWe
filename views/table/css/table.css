@@ -1,111 +1,4 @@
-body
-{
-background-image: url(images/bkg.png), #b2b2b2;
-    background-repeat: repeat-x, repeat;
-    padding: 15px;
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#b2b2b2',GradientType=0 ); /* IE6-9 */
-
-
-font-family: Copperplate, 'Copperplate Gothic Light', fantasy;
-}
-
-header
-{
-
-    height:200px;
-}
-header #title
-{
-    background: url("images/title.png") no-repeat;
-    
-    height:200px;
-    width:90%;
-    margin:0 auto;
-
-}
-main
-{
-    min-height:200px;
-    margin:0 auto;
-    width:80%;
-    margin-top:50px;
-}
-main section:first-child
-{
-    height:100px;
-
-}
-
-
-main #formBox
-{
-
-    padding-left: 50px;
-    width: 700px;
-    margin: 10px;
-    padding-bottom: 1cm;
-   /* position: absolute;*/
-
-}
-main #formBox .img  img
-{
-    width:80px;
-}
-
-footer
-{
-
-    height:200px;
-}
-
-div.img {
-    margin: 5px;
-    padding: 5px;
-   /* border: 1px solid #0000ff;*/
-    
-    width: 200px;
-    float: left;
-    text-align: center;
-}   
-
-div.img img {
-    display: inline;
-    margin: 5px;
-   /* border: 1px solid #ffffff;*/
-}
-
-div.img a:hover img {
-    /*border: 1px solid #0000ff;*/
-}
-#left
-{
-    width:20%;
-    min-height:300px;
-    float:left;
-
-
-}
-#right
-{
-    width:80%;
-    height:300px;
-
-    float:right;
-
-
-}
-span
-{
-    font-family: Copperplate, 'Copperplate Gothic Light', fantasy;
-    padding-left: 0.41cm;
-}
-
-a
-{
-    text-decoration: none;
-}
-
-.button_data{
+.button_table{
 
 border:0px solid #999999; -webkit-border-radius: 23px;
 -moz-border-radius: 23px;border-radius: 23px;
@@ -129,7 +22,7 @@ display:inline-block;
  background-image: linear-gradient(to bottom, #FFFFFF, #CFCFCF);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#FFFFFF, endColorstr=#CFCFCF);
 }
 
-.button_data:hover{
+.button_table:hover{
  border:0px solid #7A7A7A;
  background-color: #e6e6e6; 
  background-image: -webkit-gradient(linear, left top, left bottom, from(#e6e6e6), to(#b6b6b6));
@@ -138,6 +31,15 @@ display:inline-block;
  background-image: -ms-linear-gradient(top, #e6e6e6, #b6b6b6);
  background-image: -o-linear-gradient(top, #e6e6e6, #b6b6b6);
  background-image: linear-gradient(to bottom, #e6e6e6, #b6b6b6);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#e6e6e6, endColorstr=#b6b6b6);
+}
+
+#butonase
+{
+	padding-top: 0.5cm;
+}
+
+table, th, td {
+    border: 1px solid black;
 }
 
 .button_example{
@@ -173,3 +75,7 @@ font-weight:bold;
  filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#bababa, endColorstr=#575757);
 }
 
+#formBox
+{
+	padding-bottom: 0.5cm;
+}

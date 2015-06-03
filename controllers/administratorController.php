@@ -103,7 +103,7 @@ class AdministratorController extends Controller
 
 					$this->_setView('success');
 					$this->_view->set('title', 'Store success!');
-					header('Location: /login/index');
+					header('Location: /utilizatori/index');
 							
 					$data = array(
 						'name' => $name,
