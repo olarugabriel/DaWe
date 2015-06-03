@@ -1,7 +1,8 @@
  <section id="left">
-
-             <span><a href="/home/index">BAZE DE DATE :</a></span><br >
-             <span><a href="/home/add">New Database</a></span>
+ 			 <span><a href="/home/logout">Logout</a></span><br >    
+             <span><a href="/home/json">Istoric</a></span><br >
+             <span><a href="/home/add">New Database</a></span><br >
+                <span><a href="/home/index">BAZE DE DATE :</a></span><br >
             <section id="tree">
                 <ol class="tree">
                     <?php

@@ -76,5 +76,21 @@ class HomeController extends Controller
 		session_destroy(); //destroy the session
 		header('Location:/login/index'); //to redirect back to "index.php" after logging out
 	}
-
+	public function json()
+	{
+		try {
+			$json = file_get_contents('results.json');
+			$data = json_decode($json,true);
+				$this->_view->set('data', $data);
+				$error="Nu exista istoric";
+			$database=$this->_model->getDatabase($_SESSION['id']);
+			$this->_view->set('info', $database);
+			$this->_view->set('title', 'Home');
+			
+			return $this->_view->output();
+			
+		} catch (Exception $e) {
+			echo '<h1>Application error:</h1>' . $e->getMessage();
+		}
+	}
 }

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<Interogare>
+  <User>
+    <id>1</id>
+    <SQL>$sql</SQL>
+  </User>
+</Interogare>

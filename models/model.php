@@ -126,5 +126,21 @@ class Model
 		$table=$this->executeSQL();
 
 	}
+		public function saveJSON($sql)
+	{
+
+
+$json = file_get_contents('results.json');
+$data = json_decode($json);
+$dat = array(
+    "sql" => $sql,
+    "user"=>$_SESSION['id']);
+if(!empty($data))
+	array_push($dat, $data);
+file_put_contents('results.json', json_encode($dat));
+
+
+	}
+	
 	
 }
