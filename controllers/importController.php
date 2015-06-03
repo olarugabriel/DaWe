@@ -22,13 +22,9 @@ class ImportController extends Controller
 	}
 
 	public function importcsv()
-	{	echo $_POST['table'];
-		$this->_model->importcsv($_POST['table']);
-
+	{	
+		$database=$this->_model->importcsv();
 		echo "<b>Your file has been imported.</b><br><br>";
-		$link_address='/import/index';
-
-		echo '<a href="'.$link_address.'">Back</a>';
 
 	}
 	public function importSuccess()

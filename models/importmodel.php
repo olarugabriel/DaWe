@@ -2,7 +2,7 @@
 
 class ImportModel extends Model
 {
-	public function importcsv($table){
+	public function importcsv(){
 
 		if (@$_FILES['csv']['size'] > 0) { 
 
@@ -16,7 +16,7 @@ class ImportModel extends Model
     do { 
         if (@$data[0]) { 
         //	echo $data[1];
-        $sql="INSERT INTO `$table` (ID,NAME,PASSWORD,TYPE) VALUES (?,?,?,?)";            
+        $sql="INSERT INTO user (ID,NAME,PASSWORD,TYPE) VALUES (?,?,?,?)";            
         $data1=array($data[0],$data[1],$data[2],$data[3]);
 		$this->_setSql($sql);
 		$query = $this->executeSQL($data1);
